@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600;700&display=swap');
+/* GENERAL PAGE */
+
+body {
+    background: #101B43;
+    color: white;
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MAIN CONTENT */
+
+.website {
+    text-align: center;
+    padding: 30px;
+}
+
+.subtitle {
+    color: #FF4F9A;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #FF4F9A;
+    font-size: 48px;
+}
+
+.intro {
+    color: #F5DCE9;
+}
+
+/* ENVELOPE BUTTON */
+
+.envelope-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 30px;
+}
+
+/* ENVELOPE BODY */
+
+.envelope {
+    width: 180px;
+    height: 120px;
+
+    background: #FF4F9A;
+    position: relative;
+
+    margin: auto;
+    transition: transform 0.4s;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #FF1685;
+}
+
+/* FRONT POCKET*/
+
+.envelope::after {
+    content: ""; 
+    position: absolute;
+
+    inset: 0;
+
+    background: #FF4F9A;
+
+    clip-path: polygon(
+        0 0,
+        50% 65%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index: 3;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-top: 70px solid #FF91BD;
+
+    transform-origin: top;
+    transition: transform 0.6s;
+    z-index: 3;
+}
+
+.letter {
+    position:absolute;
+
+    width: 150px;
+    height: 90px;
+
+    background: #FFF0F6;
+
+    left: 15px;
+    bottom: 5px;
+
+    transition: transform 0.6s;
+    z-index: 2;
+}
+
+.envelope-heart {
+    position: absolute;
+    top: 43px;
+    left: 75px;
+
+    color: white;
+    font-size: 30px;
+
+    z-index: 4;
+}
+
+/*OPEN ANIMATION*/
+
+.envelope.opened .envelope-flap {
+    transform:rotateX(180deg)
+}
+
+.envelope.opened.letter{
+    transform:translateY(-65Px);
+}
+
+/*TEXT AFTER OPENING*/
+
+.instruction {
+    color:#FFB5D2
+}
+
+.hidden-message {
+display: none;
+Color: #FF78B5;
+font-size: 18px;
+line-height: 1.8;
+}
+
+.hidden-message.show {
+    display: block;
+}
+
+/*CONFESSION LETTER*/
+
+.final-letter {
+    display: none;
+
+    background: #FFF0F6;
+    color: #26345F;
+
+    max-width: 420px;
+    padding: 30px;
+
+    margin: 30px auto;
+    border-radius: 15px;
+
+    text-align: left;
+    line-height: 1.8;
+
+    font-family: 'Playfair Display', serif;
+
+    box-shadow: 0 8pm 30px rgba(255, 79, 154, 0.2);
+}
+
+.final-letter.show {
+    display: block;
+}
+
+.final-letter h2 {
+    color: #FF4F9A;
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.final-letter p {
+    font-size: 16px;
+}
+
+/*STAR MESSAGE ROOM*/
+
+.star-room{
+    display: none;
+
+    margin:50px auto;
+    padding:30px;
+
+    max-width:500px;
+
+    background: rgba(255, 79, 154, 0.08);
+    border: 1px solid rgba(255, 79, 154, 0.3);
+
+    border-radius: 20px;
+    text-align:center
+}
+
+.star-room.show{
+    display: block;
+}
+
+.star-room h2 {
+    color:#F5DCE9;
+    font-family: 'Fredoka, sans-serif';
+}
+
+/*STAR CONTAINER*/
+
+.star.container{
+    display: flex;
+    justify-content: center;
+    gap: 35px 0;
+
+    margin: 35px 0;
+}
+
+/*INDIVIDUAL STARS*/
+
+.star {
+    background:transparent;
+    border: none;
+    color: #FF91BD;
+    font-size: 45px;
+    cursor: pointer;
+    text-shadow: 0 0 10px #FF4F9A, 0 0 25px #FF1685;
+    animation:float 2s ease-in-out infinite;
+    transition: transform 0.3s, color 00.3s;
+}
+
+.star:hover{
+    color: white;
+    transform:scale(1.4);
+}
+
+/*FLOATING ANIMATION*/
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0);
+    }
+
+    50% {
+        transorm:translateY(-12px);
+    }
+}
+
+/*REVEALED MESSAGE*/
+
+.star-message{
+    min-height: 30px;
+    color: #FF91BD;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    transition: opacity 0.3s;
+}
